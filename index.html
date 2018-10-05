@@ -1,0 +1,493 @@
+
+<!DOCTYPE html> 
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title>Marks Spille App</title> 
+	<link rel="stylesheet" href="themes/Mobile-Themes.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="tictac.css">
+	<link rel="stylesheet" type="text/css" href="guessnumber.css">
+	<link rel="stylesheet" type="text/css" href="torf.css">
+	
+</head> 
+
+<body> 
+
+<div data-role="page" id="homepage"> <!-- jQuery mobile container -->
+  <div data-role="header">
+    <h1>Hjem</h1>
+  </div>
+  <div role="main" class="ui-content"> <!-- main content container -->
+    <p> Velkommen til Marks Spillehjørne, stedet hvor du finder de fedeste mobil spil. </p>
+    <h2>Spil:</h2>
+    <p><a href="#spil1" data-role="button" data-transition="slide">Gæt et nummer</a></p>
+    <p><a href="#spil2" data-role="button" data-transition="slide">Kryds og Bolle</a></p>
+    <p><a href="#spil3" data-role="button" data-transition="slide">Sandt eller Falsk</a></p>
+  </div>
+  <div data-role="footer">
+    <p> <i>Copyright Marks Spillehjørne &copy; 2018</i> </p>
+  </div>
+</div>
+<!-- end homepage --> 
+
+
+<!----------------------- SPIL 1 --------------------------- -->
+<div data-role="page" id="spil1">
+  <div data-role="header"> <a href="#homepage" data-transition="slide" data-direction="reverse">Hjem</a>
+    <h1>Sandt eller Falsk</h1>
+     </div>
+  <div role="main" class="ui-content"> <!-- main content container -->
+    <!-- Number guess -->
+    <div id="game">
+			<h1>Nummer Gætteleg</h1>
+			<div id="statusArea">
+				<p>Indtast et nummer imellem 1 og 100...</p>
+			</div>
+			<input type="number" id="userGuess"/>
+
+			<!--<button id="buttonArea"> ASJDKAS</button> -->
+			<div id="buttonArea" class="button">
+				Gæt
+			</div>
+			<div id="historyArea">
+				<h2>Dit forige gæt</h2>
+				<ol id="historyList">
+				</ol>
+			</div>
+		</div>
+    <div data-role="footer" class="ui-footer">
+    <p> <i>Copyright Marks Spillehjørne &copy; 2018</i> </p>
+  </div>
+</div>
+</div>
+
+<!----------------------- SPIL 2--------------------------- -->
+<div data-role="page" id="spil2">
+	<div data-role="header"> <a href="#homepage" data-transition="slide" data-direction="reverse">Hjem</a>
+  <div class="container"> 
+  <!-- "Hero" unit -->
+  <div class="jumbotron">
+    <h1 style="text-align: center;">Kryds og Bolle</h1>
+  </div>
+  <!-- main content -->
+  <div class="row"> 
+    <!-- 2 columns, reordered on medium devices and up --> 
+    <!-- First column -->
+    <div class="col-lg-6 order-lg-2">
+      <table>
+        <tbody>
+          <tr>
+            <td id="1">&nbsp;</td>
+            <td id="2">&nbsp;</td>
+            <td id="3">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="4">&nbsp;</td>
+            <td id="5">&nbsp;</td>
+            <td id="6">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="7">&nbsp;</td>
+            <td id="8">&nbsp;</td>
+            <td id="9">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="msg" class="text-center alert alert-success" role="alert">Klik på fælterne for at spille!</div>
+      <button id="playAgain" class="mt-3 mb-3 p-3 btn btn-secondary hidden">Prøv igen!</button>
+    </div>
+    <!-- Second column -->
+    <div class="col-lg-6 order-lg-1">
+      <div class="text-center">2 Player version</div>
+      <hr>
+      <p>Player 1 score: <span id="player1"></span></p>
+      <p>Player 2 score: <span id="player2"></span></p>
+      <p>Uafgjort: <span id="draw"></span></p>
+      
+      
+    </div>
+  </div>
+  <!-- Container end --> 
+</div>
+  <div data-role="footer" class="ui-footer">
+  	
+  </style>
+    <p> <i>Copyright Marks Spillehjørne &copy; 2018</i> </p>
+  </div>
+</div>
+</div>
+
+
+
+<!----------------------- SPIL 3 --------------------------- -->
+
+<div data-role="page" id="spil3">
+  <div data-role="header"> <a href="#homepage" data-transition="slide" data-direction="reverse">Hjem</a>
+    <h1>Sandt eller falsk</h1>
+     </div>
+  <div role="main" class="ui-content"> <!-- main content container -->
+    <!-- Number guess -->
+    <div id="main" class="main">
+    <div class="quiz">
+      <p class="name" ></p>
+      <p class="results"></p>
+      <p class="score"></p>
+      <p class="thanks">Thanks for playing!</p>
+      <div class="options">
+        <div class="choice" id="Sandt">Sandt</div>
+        <div class="choice" id="Falsk">Falsk</div>
+      </div>
+      <div class="generate" id="generate">Næste</div>
+    </div>
+  </div>
+
+
+  <button data-role="button" type="button" onClick="history.go(0)">Prøv igen!</button> 
+ 
+  <div data-role="footer" class="ui-footer">
+    <p> <i>Copyright Marks Spillehjørne &copy; 2018</i> </p>
+  </div>
+</div>
+</div>
+
+
+<script>
+	/* Number Guessing Game JavaScript */
+
+var secretNumber = 0,
+	numberOfGuesses = 0;
+
+function writeMessage(elementId, message, appendMessage) {
+	var elemToUpdate = document.getElementById(elementId);
+	if (appendMessage) {
+		elemToUpdate.innerHTML = elemToUpdate.innerHTML + message;
+	} else {
+		elemToUpdate.innerHTML = message;
+	}
+};
+
+function newGame() {
+	secretNumber = Math.floor(Math.random() * 100) + 1;
+	numberOfGuesses = 0;
+	writeMessage('historyList', '');
+}
+
+function guessInRange(guess) {
+	return (guess > 0 && guess < 101);
+}
+
+function userGuessed() {
+	var userGuessed = document.getElementById('userGuess').value;
+	var statusArea = document.getElementById('statusArea');
+	var historyList = document.getElementById('historyList');
+	if (userGuessed.length == 0 || ! guessInRange(userGuessed)) {
+		// Nothing entered or our of range.
+		writeMessage('statusArea', '<p>Please enter a number 1-100 and press the Guess button.</p>');
+	} else if (userGuessed.indexOf('.') != -1) {
+		writeMessage('statusArea', '<p>Please enter a whole number 1-100 and press the Guess button.</p>');
+	} else {
+		numberOfGuesses++;
+
+		if (userGuessed == secretNumber) {
+			// Got it
+			writeMessage('statusArea', '<p>Du fik mig på ' + numberOfGuesses +'. forsøg, jeg tænkte på ' + secretNumber + '. Prøv igen..</p>');
+			newGame();
+		} else if (userGuessed < secretNumber) {
+			// User needs to guess higher
+			writeMessage('statusArea', '<p>Du skal gætte højere end ' + userGuessed + ', prøv igen...</p>');
+			writeMessage('historyList', '<li>' + userGuessed +' (for lavt)</li>', true);
+		} else {
+			// User needs to guess lower
+			writeMessage('statusArea', '<p>Du skal gætte lavere end ' + userGuessed + ', prøv igen...</p>');
+			writeMessage('historyList', '<li>' + userGuessed + ' (for højt)</li>', true);
+		}
+	}
+
+	document.getElementById('userGuess').value = '';	
+}
+
+window.onload = function() {
+	newGame();
+	document.getElementById('buttonArea').addEventListener('click', userGuessed);
+};
+
+	/*
+	
+	Stuff to handle ;-):
+	1. Make the fields clickable (player0 uses "X", player1 "0")
+	2. Keep track of all used fields (fieldsPlayed) and of the fields each player chose (fieldsPlayer1, fieldsPlayer2)
+	3. Avoid that úsed fields can be played again and implement feedback like "Field already taken" (alert();)
+	4. Check for winning combinations
+	5. Implement feedback to the players (winning or game is a draw)
+	6. End the game, avoid further playing
+	7. Add a "Play again button"
+	8. Implement game statistics (local storage!)
+	9. Style the game to fit in the given Bootstrap layout ;-)
+	
+	*/
+	
+	// global game variables
+	var player, fields, fieldsPlayed, fieldsPlayer1, fieldsPlayer2, winningFields, msg, playButton;
+	// global statistics variables
+	var p1Stats, p2Stats, drawStats;
+	
+	player = 1;
+	// an array for all played fields
+	fieldsPlayed = [];
+	// arrays for each player
+	fieldsPlayer1 = [];
+	fieldsPlayer2 = [];
+	
+	// make all fields clickable
+	fields = document.getElementsByTagName('td');
+	
+	for(let i = 0; i < fields.length; i++  ){
+		fields[i].addEventListener('click', play);
+	}
+	
+	msg = document.getElementById('msg');
+	// Play again:
+	playButton = document.getElementById("playAgain");
+	playButton.addEventListener('click', playAgain);
+	
+	p1Stats = document.getElementById('player1');
+	p2Stats = document.getElementById('player2');
+	drawStats = document.getElementById('draw');
+	
+	function play(){
+		// game core mechanics, marking the fields
+		//console.log('play!');
+		if(fieldsPlayed.includes(this.id)){
+			alert('Fæltet er taget, vælg et andet!');
+		}
+		
+		if(player === 1 && !fieldsPlayed.includes(this.id)){
+		// this addresses the "owner" of the function, i.e. <td>
+		this.innerHTML = 'X';
+		this.style.color = 'white';
+		fieldsPlayer1.push(parseInt(this.id));
+		console.log('Player 1 played ' + fieldsPlayer1.toString());
+		player = 2;
+		} else if(player === 2 && !fieldsPlayed.includes(this.id)){
+			this.innerHTML = '0';
+			this.style.color = 'darkturquoise';
+			fieldsPlayer2.push(parseInt(this.id));
+			console.log('Player 2 played ' + fieldsPlayer2.toString());
+			player = 1;
+		}
+		// store field in array
+		fieldsPlayed.push(this.id);
+		//console.log(this.id + ' clicked!');
+		// checking for a winning combination
+		win();
+	}
+		
+	function win(){
+		// analyzing field choices, winning conditions, feedback
+		if(
+			// player 1 winners
+			fieldsPlayer1.includes(1) && fieldsPlayer1.includes(2) && fieldsPlayer1.includes(3) ||
+		  	fieldsPlayer1.includes(4) && fieldsPlayer1.includes(5) && fieldsPlayer1.includes(6) ||
+		  	fieldsPlayer1.includes(7) && fieldsPlayer1.includes(8) && fieldsPlayer1.includes(9) ||
+		  	fieldsPlayer1.includes(1) && fieldsPlayer1.includes(5) && fieldsPlayer1.includes(9) ||
+		  	fieldsPlayer1.includes(3) && fieldsPlayer1.includes(5) && fieldsPlayer1.includes(7)	||
+		  	fieldsPlayer1.includes(1) && fieldsPlayer1.includes(4) && fieldsPlayer1.includes(7) ||
+		  	fieldsPlayer1.includes(2) && fieldsPlayer1.includes(5) && fieldsPlayer1.includes(8) ||
+		  	fieldsPlayer1.includes(3) && fieldsPlayer1.includes(6) && fieldsPlayer1.includes(9)	
+		)
+			{
+			msg.innerHTML = "Player 1 won!";
+			// statistics update
+			let player1score = localStorage.getItem('player1'); // get the value from local storage
+			player1score++; // increment the value
+			localStorage.setItem('player1',player1score); // submit the value to local storage
+			
+			gameOver()
+		} else if (
+			// player 2 winners
+			fieldsPlayer2.includes(1) && fieldsPlayer2.includes(2) && fieldsPlayer2.includes(3) ||
+		  	fieldsPlayer2.includes(4) && fieldsPlayer2.includes(5) && fieldsPlayer2.includes(6) ||
+		  	fieldsPlayer2.includes(7) && fieldsPlayer2.includes(8) && fieldsPlayer2.includes(9) ||
+		  	fieldsPlayer2.includes(1) && fieldsPlayer2.includes(5) && fieldsPlayer2.includes(9) ||
+		  	fieldsPlayer2.includes(3) && fieldsPlayer2.includes(5) && fieldsPlayer2.includes(7) ||
+		  	fieldsPlayer2.includes(1) && fieldsPlayer2.includes(4) && fieldsPlayer2.includes(7) ||
+		  	fieldsPlayer2.includes(2) && fieldsPlayer2.includes(5) && fieldsPlayer2.includes(8) ||
+		  	fieldsPlayer2.includes(3) && fieldsPlayer2.includes(6) && fieldsPlayer2.includes(9)
+		)
+			{
+			msg.innerHTML = "Player 2 won!";
+			let player2score = localStorage.getItem('player2'); // get the value from local storage
+			player2score++; // increment the value
+			localStorage.setItem('player2',player2score); // submit the value to local storage
+			
+			gameOver()
+		} else if (
+			// game is a draw
+			fieldsPlayed.length === 9
+		)
+			{
+			msg.innerHTML = "Game is a draw!";
+			let drawscore = localStorage.getItem('draw'); // get the value from local storage
+			drawscore++; // increment the value
+			localStorage.setItem('draw', drawscore); // submit the value to local storage
+			
+			gameOver()
+		}
+	}
+
+	function gameOver(){
+		// ending the game
+		// removing ALL event listeners
+		gameStats();
+		 for (var i = 0; i < fields.length; i++) {
+			fields[i].removeEventListener('click', play); 
+		}
+		// activate the play again button, JS style (% jQuery)
+		playButton.classList.remove("hidden");
+	}
+	
+	function playAgain(){
+		// restart the game
+		window.location.reload(true);
+	}
+	
+	function gameStats(){
+		// game stats using local storage
+		
+		// preparing local storage
+		if(!localStorage.getItem('player1')){
+			localStorage.setItem('player1', 0);
+			localStorage.setItem('player2', 0);
+			localStorage.setItem('draw', 0);
+		}
+		// reading from local storage
+		let player1score = localStorage.getItem('player1');
+		let player2score = localStorage.getItem('player2');
+		let drawscore = localStorage.getItem('draw');
+		
+		// displaying the values from local storage
+		p1Stats.innerHTML = player1score;
+		p2Stats.innerHTML = player2score;
+		drawStats.innerHTML = drawscore;	
+	}
+	
+	// initializing game stats
+	gameStats();
+
+// ********************************* Sandt eller falsk ********************************************
+
+// some standard initializations; don't mess with these
+
+var counter = 0,
+    score = 0;
+
+// your quiz data should go into this variable in object form -- one object per item. sample format below:
+
+/* 
+
+{
+  "name": "Sandt",
+  "type": "Falsk"
+}
+
+*/
+
+var content = [{"name":"Mennesker bruger 10% af hjernen?","answer":"Falsk"},{"name":"Et lyn kan aldrig slå ned samme sted 2 gange?","answer":"Falsk"},{"name":"I Sydkorea kan du kun bliver massør, hvis du er blind eller har nedsat syn?","answer":"Sandt"},{"name":"Der er engang en mand, der har hikket i 69 år?","answer":"Sandt"},{"name":"Der findes en række fiskearter, som bliver mindre, jo ældre de bliver?","answer":"Sandt"},{"name":"På et år spiser et menneske i gennemsnit 8 edderkopper imens de sover?","answer":"Falsk"},{"name":"Hvis du sluger et tyggegummi bliver det i maven i ca. 7 år? ","answer":"Falsk"},{"name":"Når du dør vokser dit hår og negle videre?","answer":"Falsk"},{"name":"Coca-Cola var oprindeligt grøn?","answer":"Falsk"},{"name":"Ciabattabrød stammer fra udtrykket: Udtrådt sko?","answer":"Sandt"},{"name":"Du kan ikke sluge en skefuld stødt kanel?","answer":"Sandt"},{"name":"Verdens korteste krig varede 7 minuter?","answer":"Falsk"},];
+// assigning the commonly accessed dom elements to variables
+
+var $name = $('.name'),
+    $generate = $('.generate'),
+    $result = $('.results'),
+    $score = $('.score'),
+    $thanks = $('.thanks'),
+    $options = $('.options');
+
+var trekApp = {};
+
+// the initial state of the quiz:
+// starts off by showing the "name" value in the first item in the data object
+// hides the 'next' button, results, score and 'thanks for playing' html as a default
+
+trekApp.init = function() {
+  var selection = content[counter];
+  type = selection["answer"];
+  $name.html(selection["name"]);
+  $generate.hide();
+  $result.hide();
+  $score.hide();
+  $thanks.hide();
+}
+
+// the function for moving through the quiz
+
+trekApp.generate = function() {
+
+  // if there are still questions remaining, show the next one
+  
+  if (counter < content.length) {
+    var selection = content[counter];
+    $name.html(selection["name"]);
+    type = selection["answer"];  
+
+    $result.hide();
+    $score.hide();
+    $name.show();
+    $options.show();
+
+  // if there are no more questions, thank the user for playing and give the option to tweet the score
+  
+
+  }
+
+  $generate.hide();
+}
+
+// the event handler that determines whether the user's selection was right
+
+$('.choice').click(function(e) {
+  var chosenAnswer = e.target.id;  
+  $result.show();
+  $score.show();
+  $name.hide();
+  $options.hide();
+
+  // setting up "full sentence" values for each type -- add else if statements if you have more than two possibilities
+  
+  if (type == "Sandt") {
+    fullAnswer = "Sandt";
+  } else {
+    fullAnswer = "Falsk";
+  }
+   
+  // tell the user whether they're right or wrong, and add a point to the score if they're right
+
+   if (chosenAnswer == type) {
+    $result.html("<span class='right'>Korrekt!</span> Det er " + fullAnswer + ".");
+    score++;
+  } else {
+    $result.html("<span class='wrong'>Forkert!</span> Det er " + fullAnswer + ".");
+  }
+  counter++;
+  $score.html("Du har gættet " + score + " ud af " + counter + ".");
+  $generate.show();
+  
+});
+
+$(document).ready(function() {
+  trekApp.init();
+});
+
+$generate.on('click', function() {
+  trekApp.generate();
+});
+</script>
+
+</body>
+
+</html>
